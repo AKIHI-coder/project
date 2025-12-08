@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天吃点啥好呢^_^</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1> 民以食为天(〃'▽'〃) </h1>
+        
+        <!-- 智能筛选器 -->
+        <div class="smart-filter"
+        style="border-color: #70049f;
+        border-style: solid;
+        border-width: 3px; border-radius: 15px; padding: 20px;">
+            <div class="filter-input-group">
+                <div class="level-label">筛选类型：</div>
+                <select class="filter-input" id="filter-level">
+                    <option value="cuisine">菜系</option>
+                    <option value="style">菜式</option>
+                    <option value="flavor">口味</option>
+                    <option value="type">类型</option>
+                    <option value="ingredient">食材</option>
+                    <option value="cooking">烹饪方式</option>
+                    <option value="custom">自定义</option>
+                </select>
+                
+                <input type="text" class="filter-input" id="filter-value" placeholder="输入筛选条件...">
+                
+                <button class="add-filter-btn" id="add-filter-btn">添加条件</button>
+            </div>
+
+            <!-- 快速筛选 -->
+            <div class="quick-filters">
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('all')">全部</div>
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('鸡肉')">鸡肉</div>
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('猪肉')">猪肉</div>
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('牛肉')">牛肉</div>
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('辣')">辣味</div>
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('甜')">甜食</div>
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('蒸')">蒸菜</div>
+                <div class="quick-filter-tag" onclick="toggleQuickFilter('炸')">炸物</div>
+            </div>
+
+            <!-- 当前筛选条件 -->
+            <div class="active-filters" id="active-filters">
+                <!-- 筛选条件标签会动态添加到这里 -->
+            </div>
+            
+            <button class="clear-all" onclick="clearAllFilters()">清空所有条件</button>
+        </div>
+        
+        <!-- 推荐区域 -->
+        <div class="recommend-section"
+        style="border-color: #70049f;
+        border-style: solid;
+        border-width: 3px;">
+            <button id="recommend-btn"> (｀・ω・´) 天降美食！</button>
+            <div class="result-section"
+            style="border-width: 5px;
+            border-color: antiquewhite;
+            border-style: dashed;
+            text-align: center;">
+                <div id="result"></div>
+                <!-- 查看介绍链接会动态添加到这里 -->
+            </div>
+        </div>
+
+        <!-- 统计信息 -->
+        <div class="stats" id="stats">找到 100 道符合条件的菜品</div>
+
+        <!-- 历史记录 -->
+        <div class="history-section">
+            <h3>📜 最近推荐</h3>
+            <div id="history-list">
+                <!-- 历史记录会动态添加 -->
+            </div>
+        </div>
+
+        <!-- 美食库管理 -->
+        <div class="management-section">
+            <div class="management-header">
+                <h3>📝 管理我的美食库</h3>
+                <button class="toggle-btn" id="toggle-btn">展开全部</button>
+            </div>
+            
+            <div class="add-food-form">
+                <input type="text" id="new-food-input" placeholder="输入新菜品...">
+                <button id="add-food-btn">添加</button>
+            </div>
+            
+            <div class="food-list-container">
+                <div class="food-list collapsed" id="food-list">
+                    <!-- 美食列表会动态添加 -->
+                </div>
+            </div>
+            
+            <div class="stats" id="food-stats">总共 100 道菜</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
